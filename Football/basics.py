@@ -2,15 +2,14 @@ import pandas as pd
 
 
 def get_df():
-    df = pd.read_csv("/Users/jcklvrgn/Documents/GitHub/Football/nfl_team_stats_2002-2023.csv")
+    df = pd.read_csv("/Users/jcklvrgn/Documents/GitHub/NFL_predictor/Football/nfl_team_stats_2002-2023.csv")
 
     df['winner'] = df.apply(
         lambda row: row['home'] if row['score_home'] > row['score_away'] else row['away'],
         axis=1
         )
 
-        # Add 'home_win' column based on the 'winner' column
-    df['win_home'] = df['winner'] == df['home']
+
 
     return df
     
